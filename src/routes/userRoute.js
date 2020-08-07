@@ -3,6 +3,7 @@ const express = require("express");
 const router = express.Router();
 
 let response = {};
+
 // Get all user from DB
 router.route("/all").get((req, res) => {
   User.find({}, (err, data) => {

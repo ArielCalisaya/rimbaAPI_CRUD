@@ -8,8 +8,8 @@ const bodyP = require("body-parser");
 // DB configuration
 require("./util/configDB");
 
-const port = process.env.PORT
-const host = process.env.HOST || 3030
+const port = process.env.PORT || 3330
+const host = process.env.HOST
 
 dotenv.config();
 
