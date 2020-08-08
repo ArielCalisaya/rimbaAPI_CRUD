@@ -19,7 +19,9 @@ router.route("/all").get((req, res) => {
 
 // Get user by id
 router.route("/user/:id").get((req, res) => {
-  User.findById(req.params.id, (err, data) => {
+  let id = req.params.id;
+
+  User.findById(id, (err, data) => {
     // Fetch user data by id
     if (err) {
       response = { error: true, msg: "Error fetching data, try your best ;D" };
@@ -49,7 +51,9 @@ router.route("/user/new").post((req, res) => {
 
 // Change user information
 router.route("/change/:id").put((req, res) => {
-  User.findById(req.params.id, (err, data) => {
+  let id = req.params.id;
+
+  User.findById(id, (err, data) => {
     if (err) {
       response = { error: true, msg: "Error fetching data" };
     } else {
@@ -80,18 +84,19 @@ router.route("/change/:id").put((req, res) => {
 
 // Delete user
 router.route("/delete/:id").delete((req, res) => {
-  var response = {};
-  User.findById(req.params.id, (err, data) => {
+  let response = {};
+  let id = req.params.id;
+  User.findById(id, (err, data) => {
     // Delete user data by id
     if (err) {
       response = { error: true, msg: "Error fetching data, try your best ;D" };
     } else {
       // data exist? remove it.
-      User.remove({ _id: req.params.id }, (err) => {
+      User.remove({ _id: id }, (err) => {
         if (err) {
           response = { error: true, msg: "Error deleting data :C" };
         } else {
-          response = { error: true, msg: `${req.params.id} has been removed` };
+          response = { error: true, msg: `${id} has been removed` };
         }
         res.json(response);
       });
@@ -99,7 +104,7 @@ router.route("/delete/:id").delete((req, res) => {
   });
 });
 
-// Get Make User Test from schema
+// Make User Test from schema
 router.get("/createADM", async (req, res) => {
   try {
     const user = new User({
