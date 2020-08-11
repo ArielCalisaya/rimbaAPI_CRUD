@@ -96,7 +96,7 @@ router.route("/delete/:id").delete((req, res) => {
         if (err) {
           response = { error: true, msg: "Error deleting data :C" };
         } else {
-          response = { error: true, msg: `${id} has been removed` };
+          response = { error: true, msg: `User with id:${id} has been removed` };
         }
         res.json(response);
       });

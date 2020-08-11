@@ -25,7 +25,11 @@ You will also see any lint errors in the console.
       "Delete_User": "/api/users/delete/:id"
     },
     "clothesRoutes": {
-      "out": "comming soon"
+      "Show_AllClothes": "/api/clothes/all",
+      "Get_ClotheDetail": "/api/clothes/:id",
+      "Create_Clothes_Detail": "/api/clothes/new",
+      "Change_Clothe_Details": "/api/clothes/edit/:id",
+      "Detele_Clothe_Details": "/api/clothes/delete/:id"
     }
   }
 }
